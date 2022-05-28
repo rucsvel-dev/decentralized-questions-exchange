@@ -3,29 +3,20 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { FC } from "react";
 
+import Question from "./Question";
 import useUploadQuestionTest from "./useUploadQuestionTest";
 
 const UploadQuestionTest: FC = () => {
   const [questionTitle, setQuestionTitle] = useState("");
   const [questionDescription, setQuestionDescription] = useState("");
-  const [uploadedQuestion, setUploadedQuestion] = useState({});
 
-  const { createQuestion, getQuestion, questions } = useUploadQuestionTest();
+  const { createQuestion, questions } = useUploadQuestionTest();
 
   const createQuestionCallback = useCallback(
     () => createQuestion({ questionTitle, questionDescription }),
     [questionTitle, questionDescription]
   );
 
-  useEffect(() => {
-    getQuestion(
-      setUploadedQuestion,
-      "bafybeiayxd3zq6vos5jllhe7ztlqssqc7dm6vovpopkd7m5vnjyatwuov4"
-    );
-  }, []);
-  //   bafybeiayxd3zq6vos5jllhe7ztlqssqc7dm6vovpopkd7m5vnjyatwuov4
-
-  console.log("===== question ", uploadedQuestion);
   console.log("===== questions ", questions);
   return (
     <div>
@@ -42,7 +33,7 @@ const UploadQuestionTest: FC = () => {
       <button onClick={createQuestionCallback}>Create question</button>
       {questions.map(({ questionId, isProved }) => (
         <div key={questionId}>
-          {questionId} - isProved: {String(isProved)}
+          <Question questionId={questionId} isProved={isProved} />
         </div>
       ))}
     </div>
