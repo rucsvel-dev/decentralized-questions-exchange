@@ -8,12 +8,12 @@ const useUploadQuestionTest = () => {
   const { shareQuestion, questions } = useP2PNetwork();
 
   const createQuestion = async ({ questionTitle, questionDescription }) => {
-    const questionId = await uploadQuestion({
-      questionTitle,
-      questionDescription,
-    });
-    console.log("===== questionId ", questionId);
-    await shareQuestion(questionId);
+    // const questionId = await uploadQuestion({
+    //   questionTitle,
+    //   questionDescription,
+    // });
+    // console.log("===== questionId ", questionId);
+    await shareQuestion(questionTitle);
   };
 
   const getQuestion = async (onSuccess, questionId) => {
