@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect, FC, ReactNode } from "react";
 import GUN from "gun";
+import "gun/axe";
 
 import P2PNetworkContext from "./P2PNetwork.context";
 
