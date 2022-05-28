@@ -12,7 +12,7 @@ const useUploadQuestionTest = () => {
       questionTitle,
       questionDescription,
     });
-
+    console.log("===== questionId ", questionId);
     await shareQuestion(questionId);
   };
 

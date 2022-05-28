@@ -19,7 +19,9 @@ const useWeb3Storage = (): TUseWeb3Storage => {
       const questionFile = new File([blob], `${questionTitle}.json`);
 
       return await storageProvider.put([questionFile]);
-    } catch {}
+    } catch (e) {
+      console.error("===== ", e);
+    }
   };
 
   const getById = async (id: string): Promise<{}> => {
