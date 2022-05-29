@@ -9,9 +9,7 @@ const P2PProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [p2pProvider, setP2PProvider] = useState(null);
 
   useEffect(() => {
-    const gun = GUN({
-      peers: ["http:localhost:8000/gun"],
-    });
+    const gun = GUN();
     const questionsProvider = gun.get("questions");
 
     setP2PProvider(gun);
